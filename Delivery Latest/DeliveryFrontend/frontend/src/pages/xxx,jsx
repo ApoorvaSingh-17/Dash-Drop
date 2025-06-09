@@ -1,0 +1,48 @@
+ // === Charges Table ===
+//       doc.fillColor('#023e8a').fontSize(12).text('Charges Breakdown:', { underline: true });
+//       doc.moveDown(0.5);
+
+//       const tableTop = doc.y;
+//       const itemSpacing = 25;
+//       const leftX = 70;
+//       const rightX = 400;
+
+//       const items = [
+//         { label: 'Base Fee', value: order.packageDetails.baseFee },
+//         { label: 'Distance Fee', value: order.packageDetails.distanceFee },
+//         { label: 'Weight Fee', value: order.packageDetails.weightFee },
+//         { label: 'Tax Amount', value: order.packageDetails.taxAmount },
+//         { label: 'Total Amount', value: order.paymentDetails.amount, bold: true },
+//       ];
+
+//       items.forEach((item, i) => {
+//         doc.font(item.bold ? 'Helvetica-Bold' : 'Helvetica')
+//           .fontSize(11)
+//           .fillColor(item.bold ? '#000' : '#333')
+//           .text(item.label, leftX, tableTop + i * itemSpacing)
+//           .text(`₹${(item.value ?? 0).toFixed(2)}`, rightX, tableTop + i * itemSpacing, { align: 'right' });
+//       });
+
+
+//       doc.moveDown(6);
+
+//       // === Thank You Note ===
+//       doc.fillColor('#000').fontSize(11).text('Thank you for choosing Dash & Drop!', { align: 'center' });
+
+//       // === Footer ===
+//       const pageHeight = doc.page.height;
+//       doc.fontSize(10)
+//         .fillColor('#6c757d')
+//         .text(
+//           'For support, contact us at: support@dashanddrop.com | Visit: www.dashanddrop.com',
+//           50,
+//           pageHeight - 50,
+//           { align: 'center', width: doc.page.width - 100 }
+//         );
+
+//       doc.end();
+//     } catch (error) {
+//       reject(error);
+//     }
+//   });
+// };

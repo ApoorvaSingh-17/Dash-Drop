@@ -1,0 +1,9 @@
+# Ignore node_modules
+DeliveryFrontend/frontend/node_modules/
+DeliveryBackend/node_modules/
+
+# Ignore build
+DeliveryFrontend/build/
+
+# Ignore environment files
+*.env
