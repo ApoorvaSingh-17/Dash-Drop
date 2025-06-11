@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import './App.css'
 import AdminOrders from './pages/AdminOrders'
 import UpdateLocation from './pages/UpdateLocation'
-import UpdateLocationForm from './pages/UpdateLocationForm'
+// import UpdateLocationForm from './pages/UpdateLocationForm'
 import Tracking from './pages/Tracking'
 import User from './pages/User'
 import UserLandingPage from "./pages/UserLandingPage"
@@ -23,6 +23,8 @@ import 'leaflet/dist/leaflet.css';
 import 'antd/dist/reset.css';
 import PaymentPage from './pages/PaymentPage';
 import OrderSuccess from './pages/OrderSuccess';
+import UpdateLocationFormTwo from './pages/UpdateLocationFormTwo';
+import TrackMapPage from './pages/TrackMapPage';
 
 
 
@@ -43,12 +45,15 @@ function App() {
         <Route path="/adminRegister" element={<AdminRegister />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/update" element={<UpdateLocation />} />
-        <Route path="/updateForm" element={<UpdateLocationForm />} />
+        {/* <Route path="/updateForm" element={<UpdateLocationForm />} /> */}
+        <Route path="/updateFormTwo" element={<UpdateLocationFormTwo />} />
+
         <Route path="/tracking-id" element={<Tracking_id />} />
         <Route path="/courierForm" element={<CourierForm />} />
         <Route path="/viewOrder" element={<ViewOrderPage />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/order-success" element={<OrderSuccess />} />
+        <Route path ="/track-map" element={<TrackMapPage />} />
        
        
 

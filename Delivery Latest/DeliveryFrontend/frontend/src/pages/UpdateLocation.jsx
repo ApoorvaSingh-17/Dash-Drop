@@ -11,7 +11,7 @@ const UpdateLocation = () => {
           <label for="orderId" className='updateLabel'>Enter parcel-id for updating location.</label>
           <form action="" className='UpdateLocationForm'>
             <input type="text" placeholder='Parcel Id' name='orderId' className='updateInput' />
-            <Link className="fs-4 text-dark" to="/updateForm">
+            <Link className="fs-4 text-dark" to="/updateFormTwo">
             <button type="button" className="btn btn-success updateLocationButton" to>Update</button>
             </Link>
             

@@ -15,7 +15,7 @@
 //           try {
 //             const response = await fetch(`http://localhost:5000/api/orders/track/${orderId}`);
 //             const data = await response.json();
-    
+
 //             if (response.ok) {
 //               setOrder(data);
 //             } else {
@@ -26,7 +26,7 @@
 //             setError("Error fetching order tracking data");
 //           }
 //         };
-    
+
 //         fetchOrderTrackingData();
 //       }, [orderId]);
 
@@ -38,7 +38,7 @@
 
 //             {order ? (
 //                 <div className='imageHome'>
-                    
+
 //                     <h3 className='tracking-title'>Events for parcel_id:{orderId}</h3>
 
 
@@ -91,7 +91,7 @@
 // export default Tracking
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';  // Use to get the orderId from the URL
+import { useParams, useNavigate } from 'react-router-dom';  // Use to get the orderId from the URL
 import TrackItem from '../components/TrackItem';
 import UserNavbar from '../components/UserLandNavbar';
 
@@ -99,6 +99,7 @@ const Tracking = () => {
   const { orderId } = useParams();  // Get orderId from URL
   const [order, setOrder] = useState(null);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOrderTrackingData = async () => {
@@ -122,10 +123,38 @@ const Tracking = () => {
     fetchOrderTrackingData();
   }, [orderId]);
 
+  const handleSeeOnMap = () => {
+    if (!order) return;
+
+    const latestLocation = order.trackingHistory?.at(-1);
+
+    if (!latestLocation?.lat || !latestLocation?.lng) {
+    alert("Live location is not available yet.");
+    return;
+  }
+
+    navigate('/track-map', {
+      state: {
+        source: {
+          city: order.sourceCity,
+          state: order.sourceState,
+        },
+        destination: {
+          city: order.destCity,
+          state: order.destState,
+        },
+        liveLocation: {
+        lat: latestLocation.lat,
+        lng: latestLocation.lng,
+      },
+      },
+    });
+  };
+
   return (
     <>
       <UserNavbar />
-      
+
       {error && <div className="error-message">{error}</div>}
 
       {order ? (
@@ -154,6 +183,16 @@ const Tracking = () => {
               ))}
             </tbody>
           </table>
+          {/* See on Map Button */}
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <button
+              className="btn btn-primary"
+              onClick={handleSeeOnMap}
+              disabled={!order.trackingHistory?.length}
+            >
+              See on Map
+            </button>
+          </div>
         </div>
       ) : (
         <div>Loading...</div>

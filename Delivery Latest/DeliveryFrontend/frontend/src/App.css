@@ -995,4 +995,117 @@ h1 {
   to { opacity: 1; transform: scale(1); }
 }
 
+.leaflet-container {
+  height: 500px !important;
+  width: 100% !important;
+  z-index: 0;
+}
+
+.eta-summary {
+  text-align: center;
+  margin-top: 20px;
+  background: #edf7b1;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.eta-summary p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.eta-loading {
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.eta-clarity{
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+
+.tracking-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.card-header {
+  background-color: #f0f4f8;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header h5 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-body {
+  padding: 1.25rem 1.5rem;
+  color: #444;
+}
+
+.card-body p {
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+}
+
+.progress {
+  height: 16px;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #28a745;
+  line-height: 16px;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #fff;
+  transition: width 0.4s ease-in-out;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
 

@@ -92,24 +92,28 @@ export const updateOrderStatus = async (req, res) => {
 
 // GET /api/orders/track/:orderId
 export const trackOrder = async (req, res) => {
-    try {
-      const { orderId } = req.params;
-  
-      const order = await Order.findById(orderId).populate("user", "username email");
-  
-      if (!order) return res.status(404).json({ message: "Order not found" });
-  
-      res.status(200).json({
-        orderStatus: order.orderStatus,
-        orderLocation: order.orderLocation,
-        trackingHistory: order.trackingHistory,
-      });
-    } catch (error) {
-      res.status(500).json({ message: "Failed to track order", error });
-    }
-  };
+  try {
+    const { orderId } = req.params;
 
-  // Get order by ID
+    const order = await Order.findById(orderId).populate("user", "username email");
+
+    if (!order) return res.status(404).json({ message: "Order not found" });
+
+    res.status(200).json({
+      orderStatus: order.orderStatus,
+      orderLocation: order.orderLocation,
+      trackingHistory: order.trackingHistory,
+      sourceCity: order.senderDetails.address.city,
+      sourceState: order.senderDetails.address.state,
+      destCity: order.receiverDetails.address.city,
+      destState: order.receiverDetails.address.state,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to track order", error });
+  }
+};
+
+// Get order by ID
 export const getOrderById = async (req, res) => {
   try {
     const order = await Order.findById(req.params.orderId);
@@ -121,4 +125,4 @@ export const getOrderById = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-  
+
